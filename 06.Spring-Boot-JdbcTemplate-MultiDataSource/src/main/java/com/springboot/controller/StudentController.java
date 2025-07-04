@@ -24,4 +24,9 @@ public class StudentController {
 	public List<Map<String, Object>> queryStudentsFromMysql(){
 		return this.studentService.getAllStudentsFromMysql();
 	}
+
+	@RequestMapping("querystudentsfrommysql2")
+	public List<Map<String, Object>> queryStudentsFromMysql2(){
+		return this.studentService.getAllStudentsFromMysql2();
+	}
 }

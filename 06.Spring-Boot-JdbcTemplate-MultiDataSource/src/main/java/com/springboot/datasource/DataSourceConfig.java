@@ -26,6 +26,12 @@ public class DataSourceConfig {
 	    return DruidDataSourceBuilder.create().build();
 	}
 
+	@Bean(name = "mysql2datasource")
+	@ConfigurationProperties("spring.datasource.druid.mysql2")
+	public DataSource dataSourceThree(){
+	    return DruidDataSourceBuilder.create().build();
+	}
+
 	@Bean(name = "mysqlJdbcTemplate")
 	public JdbcTemplate primaryJdbcTemplate(
 	        @Qualifier("mysqldatasource") DataSource dataSource) {
@@ -35,6 +41,12 @@ public class DataSourceConfig {
 	@Bean(name = "oracleJdbcTemplate")
 	public JdbcTemplate secondaryJdbcTemplate(
 	        @Qualifier("oracledatasource") DataSource dataSource) {
+	    return new JdbcTemplate(dataSource);
+	}
+
+	@Bean(name = "mysql2JdbcTemplate")
+	public JdbcTemplate threeJdbcTemplate(
+	        @Qualifier("mysql2datasource") DataSource dataSource) {
 	    return new JdbcTemplate(dataSource);
 	}
 }
