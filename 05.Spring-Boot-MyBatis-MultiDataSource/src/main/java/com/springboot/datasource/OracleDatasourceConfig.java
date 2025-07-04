@@ -24,7 +24,7 @@ public class OracleDatasourceConfig {
 	// mybatis mapper扫描路径
 	static final String MAPPER_LOCATION = "classpath:mapper/oracle/*.xml";
 	
-	@Bean(name = "oracledatasource")
+	@Bean(name = "oracleDataSource")
 	@ConfigurationProperties("spring.datasource.druid.oracle")
 	public DataSource oracleDataSource() {
 		return DruidDataSourceBuilder.create().build();
@@ -36,7 +36,7 @@ public class OracleDatasourceConfig {
     }
  
     @Bean(name = "oracleSqlSessionFactory")
-    public SqlSessionFactory oracleSqlSessionFactory(@Qualifier("oracledatasource") DataSource dataSource) throws Exception {
+    public SqlSessionFactory oracleSqlSessionFactory(@Qualifier("oracleDataSource") DataSource dataSource) throws Exception {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
         //如果不使用xml的方式配置mapper，则可以省去下面这行mapper location的配置。

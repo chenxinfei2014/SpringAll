@@ -9,17 +9,24 @@ spring:
       mysql:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull
+        url: jdbc:mysql://10.8.0.14:8816/test?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull
         username: root
-        password: 123456
+        password: XXLjob@2022
       # 数据源2 oracle
       oracle: 
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: oracle.jdbc.driver.OracleDriver
         url: jdbc:oracle:thin:@localhost:1521:ORCL
-        username: test
-        password: 123456
-        
+        username: c##root
+        password: 12345678
+      # 数据源3 mysql2
+      mysql2:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://10.8.0.14:8816/test1?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull
+        username: root
+        password: XXLjob@2022
+
       # 连接池配置
       initial-size: 5
       min-idle: 5
