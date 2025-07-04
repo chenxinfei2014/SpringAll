@@ -1,5 +1,6 @@
 package com.springboot.controller;
 
+import com.springboot.annotation.PostLog;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +24,12 @@ public class TestController {
 	@Log("执行方法三")
 	@GetMapping("/three")
 	public void methodThree(String name, String age) {
-		
+
+	}
+
+	@PostLog("执行方法四")
+	@GetMapping("/four")
+	public void methodFour(String name, String age) {
+
 	}
 }
