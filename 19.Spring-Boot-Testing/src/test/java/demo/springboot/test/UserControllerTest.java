@@ -32,7 +32,7 @@ public class UserControllerTest {
 	
 	@Autowired
     private WebApplicationContext wac;
-	
+
 	@Autowired
 	ObjectMapper mapper;
 
@@ -69,13 +69,22 @@ public class UserControllerTest {
 		
 //		mockMvc.perform(MockMvcRequestBuilders.post("/user/save").content(jsonStr.getBytes()));
 		
-		mockMvc.perform(
-				MockMvcRequestBuilders.post("/user/save")
-				.contentType(MediaType.APPLICATION_JSON_UTF8)
-				.content(userJson.getBytes()))
-		.andExpect(MockMvcResultMatchers.status().isOk())
-		.andDo(MockMvcResultHandlers.print());
-		
+//		mockMvc.perform(
+//				MockMvcRequestBuilders.post("/user/save")
+//				.contentType(MediaType.APPLICATION_JSON_UTF8)
+//				.content(userJson.getBytes()))
+//		.andExpect(MockMvcResultMatchers.status().isOk())
+//		.andDo(MockMvcResultHandlers.print());
+
+//		mockMvc.perform(MockMvcRequestBuilders.get("/user/mrbird"))
+//				.andExpect(MockMvcResultMatchers.status().isOk())
+//				.andDo(MockMvcResultHandlers.print());
+
+
+		mockMvc.perform(MockMvcRequestBuilders.get("/user/{userName}","mrbird"))
+				.andExpect(MockMvcResultMatchers.status().isOk())
+				.andDo(MockMvcResultHandlers.print());
+
 //		mockMvc.perform(MockMvcRequestBuilders.get("/hello?name={name}","mrbird"));
 //		mockMvc.perform(MockMvcRequestBuilders.post("/user/{id}", 1));
 //		mockMvc.perform(MockMvcRequestBuilders.fileUpload("/fileupload").file("file", "文件内容".getBytes("utf-8")));

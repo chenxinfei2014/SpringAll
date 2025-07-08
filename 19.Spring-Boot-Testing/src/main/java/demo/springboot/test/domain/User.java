@@ -9,16 +9,16 @@ import javax.persistence.Table;
 @Table(name = "T_USER")
 public class User {
     @Id
-    @Column(name = "USER_ID")
+    @Column(name = "ID")
     private Long id;
 
     @Column(name = "USERNAME")
     private String username;
 
-    @Column(name = "PASSWORD")
+    @Column(name = "PASSWD")
     private String passwd;
 
-    @Column(name = "CRATE_TIME")
+    @Column(name = "CREATE_TIME")
     private Date createTime;
 
     @Column(name = "STATUS")
